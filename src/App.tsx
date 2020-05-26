@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, Dispatch } from './stores';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default () => {
+    const count = useSelector<RootState, number>(state => state.index.count);
+    const action = useDispatch<Dispatch>();
+    const inc = () => action.index.inc(1);
+    const incAsync = () => action.index.incAsync(8);
+
+    return (
+        <div className='app'>
+            <div className='title'>{count}</div>
+
+            <div><button onClick={inc}>Add</button></div>
+            <div><button onClick={incAsync}>AddAsync</button></div>
+        </div>
+    );
 }
-
-export default App;
