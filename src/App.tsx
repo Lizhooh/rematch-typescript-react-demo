@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, Dispatch } from './stores';
 
 export default () => {
-    const count = useSelector<RootState, number>(state => state.index.count);
-    const action = useDispatch<Dispatch>();
-    const inc = () => action.index.inc(1);
-    const incAsync = () => action.index.incAsync(8);
+    const count = useSelector((state: RootState) => state.index.count);
+    const action = useDispatch<Dispatch>().index;
+    const inc = () => action.inc(1);
+    const incAsync = () => action.incAsync(8);
 
     return (
         <div className='app'>
