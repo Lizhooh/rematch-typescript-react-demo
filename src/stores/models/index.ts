@@ -1,17 +1,22 @@
 
+type State = {
+    count: number,
+};
+
+const state: State = {
+    count: 0,
+};
 
 export default {
-    state: {
-        count: 0,
-    },
+    state,
     reducers: {
-        inc(state, payload) {
+        inc(state: State, payload: number) {
             state.count += payload;
             return state;
         }
     },
     effects: {
-        async incAsync(payload, rootState) {
+        async incAsync(payload: number, rootState) {
             await new Promise(resolve => setTimeout(resolve, 500));
             this.inc(payload);
         },
