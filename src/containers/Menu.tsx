@@ -6,8 +6,8 @@ import { Menu } from 'antd';
 import { State } from '../stores';
 
 let flag = false;
-let selectedKeys: any = '';
-let openKeys: any = '';
+let selectedKeys: ID = '';
+let openKeys: ID = '';
 
 export default function MyMenu() {
     const { list } = useSelector((state: State) => state.menu);

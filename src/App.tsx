@@ -7,7 +7,7 @@ import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 
 // 整体布局
-export default () => {
+export default function App() {
     useNprogress(200);
     return (
         <Switch>
@@ -16,4 +16,4 @@ export default () => {
             <Route path='*' component={NotFound} />
         </Switch>
     );
-}
+};

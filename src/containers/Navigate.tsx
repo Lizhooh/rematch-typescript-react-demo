@@ -3,11 +3,10 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Avatar, Popover } from 'antd';
 
-import { State, Dispatch } from '../stores';
+import { State } from '../stores';
 
 export default function Navigate() {
     const { title, user, links, operates } = useSelector((state: State) => state.navigate);
-
     const UserMenu = (
         <div style={{ width: 150 }}>
             {operates.map(item => (
@@ -18,7 +17,6 @@ export default function Navigate() {
             ))}
         </div>
     );
-
     const Operate = (
         <Popover content={UserMenu} align={{ offset: [20, 0] }}>
             <div className='navigate-user'>

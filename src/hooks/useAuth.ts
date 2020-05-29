@@ -35,6 +35,5 @@ export default function useAuth(checkToken, ready) {
             replace('/');
         });
     }
-
     return loadStatus;
-};
+}

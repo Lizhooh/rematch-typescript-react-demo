@@ -16,11 +16,6 @@ a {
     text-decoration: none;
 }
 
-
-.flex-1 {
-    flex: 1;
-}
-
 .admin > .main {
     $mad: 12px;
     margin-left: $menu-width + $mad;
@@ -28,12 +23,24 @@ a {
     margin-right: $mad;
     background-color: #fff;
     min-height: 400px;
+}
 
-    // animation: main-start 0.3s ease-in-out;
-    // animation-fill-mode: both;
-
-    // @keyframes main-start {
-    //     0% { opacity: 0 }
-    //     100% { opacity: 1 }
-    // }
+.flex {
+    display: flex;
+    &-1 {
+        flex: 1;
+    }
+    &-jc-center {
+        display: flex;
+        justify-content: center;
+    }
+    &-ai-center {
+        display: flex;
+        align-items: center;
+    }
+    &-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
