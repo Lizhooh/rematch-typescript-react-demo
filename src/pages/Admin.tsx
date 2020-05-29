@@ -14,7 +14,7 @@ const checkToken = async () => {
     return Math.random() > 0.5 ? Math.random().toString(2).slice(2) : '';
 };
 
-// 整体布局
+// 管理页整体布局
 export default () => {
     useNprogress(200);
     const routes = useRoutes();
@@ -22,16 +22,13 @@ export default () => {
         console.log('哈哈：', token);
     });
 
+    const Text = ({ title }) => (
+        <h2>{title}</h2>
+    );
+
     if (loadStatus !== 'done') {
         return <Loading />;
     }
-
-    const Text = ({ title }) => {
-        return (
-            <h2>{title}</h2>
-        );
-    };
-
     return (
         <div className='admin'>
             <Navigate />
