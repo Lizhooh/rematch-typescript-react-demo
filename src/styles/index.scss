@@ -1,20 +1,13 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
-.app {
-    position: absolute;
-    transform: scale(2);
-    top: 10%;
-    left: 10%;
+@import './variable.scss';
+@import './app.scss';
+@import './antd.scss';
 
-    .title {
-        font-size: 20px;
-        color: #39f;
-    }
-}
+// components
+
+// containers
+@import './containers/navigate.scss';
+@import './containers/menu.scss';
+
+// pages
+

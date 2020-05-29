@@ -1,0 +1,73 @@
+
+@mixin hover() {
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(1, 1, 1, 0.03);
+    }
+}
+
+.navigate {
+    position: fixed;
+    top: 0;
+    left: 0; right: 0;
+    z-index: 1002;
+    height: $navigate-height;
+    width: 100%;
+    background-color: $navigate-color;
+    box-shadow: 1px 2px 3px rgba(1, 1, 1, 0.06);
+    display: flex;
+    border-bottom: 0.5px solid #f1f1f1;
+    user-select: none;
+
+    &-left, &-right {
+        flex: 1;
+    }
+
+    &-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &-title {
+        text-align: center;
+        width: $menu-width;
+        font-size: 20px;
+        display: block;
+        line-height: $navigate-height;
+    }
+    &-link > a {
+        display: block;
+        float: left;
+        height: 100%;
+        text-align: center;
+        width: 85px;
+        color: #456;
+        line-height: $navigate-height;
+        @include hover();
+    }
+    &-user {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 16px;
+        @include hover();
+        &-name {
+            font-size: 16px;
+            margin-left: 12px;
+            min-width: 60px;
+            margin-right: 8px;
+        }
+    }
+    &-operate {
+        padding: 8px;
+        border-bottom: 0.5px solid #f4f4f4;
+        display: flex;
+        align-items: center;
+        @include hover();
+        cursor: pointer;
+        > span {
+            color: #456;
+            margin-left: 10px;
+        }
+    }
+}

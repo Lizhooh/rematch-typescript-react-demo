@@ -1,0 +1,13 @@
+
+
+.menu {
+    position: fixed;
+    width: $menu-width;
+    background-color: $menu-color;
+    left: 0;
+    top: $navigate-height;
+    bottom: 0;
+    z-index: 1001;
+    border-right: 0.5px solid #f1f1f1;
+    user-select: none;
+}
