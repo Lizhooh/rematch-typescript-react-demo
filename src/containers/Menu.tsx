@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu } from 'antd';
 
 import { State } from '../stores';
-import { Menu } from 'antd';
 
 let flag = false;
 let selectedKeys: any = '';
@@ -35,10 +35,14 @@ export default function MyMenu() {
         });
     })();
 
+    const onClick = e => {
+
+    };
+
     return (
         <div className='menu'>
             <Menu
-                onClick={e => console.log(e)}
+                onClick={onClick}
                 style={{ width: 220, height: 'calc(100vh - 55px)' }}
                 defaultSelectedKeys={[selectedKeys + '']}
                 defaultOpenKeys={[openKeys + '']}

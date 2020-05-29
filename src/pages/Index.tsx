@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { State, Dispatch } from '../stores';
 
 // 整体布局
@@ -15,6 +17,8 @@ export default () => {
 
             <div><button onClick={inc}>Add</button></div>
             <div><button onClick={incAsync}>AddAsync</button></div>
+
+            <Link to='/admin'>go to Admin</Link>
         </div>
     );
 }

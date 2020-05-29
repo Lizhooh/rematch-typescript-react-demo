@@ -6,7 +6,7 @@ import LogoutIcon from '../../assets/icons/logout.svg';
 const state = {
     title: 'TITLE',
     links: [
-        { id: 1, path: '/index', title: '主页', key: 'Index' },
+        { id: 1, path: '/', title: '主页', key: 'Index' },
         { id: 2, path: '/feedback', title: '反馈', key: 'Feedback' },
         { id: 3, path: '/help', title: '帮助', key: 'Help' },
     ],
