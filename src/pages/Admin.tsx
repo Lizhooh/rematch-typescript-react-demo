@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Navigate from '../containers/Navigate';
 import Menu from '../containers/Menu';
@@ -7,39 +7,22 @@ import NotFound from './NotFound';
 import Loading from './Loading';
 import useNprogress from '../hooks/useNprogress';
 import useRoutes from '../hooks/useRoutes';
-import storage from '../storage';
-
-const maps = {};
-type LoadStatus = 'init' | 'load' | 'done';
+import useAuth from '../hooks/useAuth';
 
 const checkToken = async () => {
     await new Promise(rs => setTimeout(rs, 1000));
-    return Math.random() > 0.5 ? 'abcdef' : '';
+    return Math.random() > 0.5 ? Math.random().toString(2).slice(2) : '';
 };
 
 // 整体布局
 export default () => {
     useNprogress(200);
     const routes = useRoutes();
-    const { replace } = useHistory();
-    const [token] = useState(() => storage.get('TOKEN'));
-    const [loadStatus, setLoadStatus] = useState<LoadStatus>('init');
+    const loadStatus = useAuth(checkToken, token => {
+        console.log('哈哈：', token);
+    });
 
-    if (loadStatus === 'load') return <Loading />;
-    // 判断本地的 token 是否存在，存在则状态去加载页
-    if (token && loadStatus === 'init') {
-        setLoadStatus('load');
-        // 检查 token 有效性
-        checkToken().then(res => {
-            if (res) {
-                // 成功
-                storage.set('TOKEN', res);
-                setLoadStatus('done');
-                return;
-            }
-            // 失败，回去吧
-            replace('/');
-        });
+    if (loadStatus !== 'done') {
         return <Loading />;
     }
 
