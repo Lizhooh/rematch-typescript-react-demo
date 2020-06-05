@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 // 整体布局
 export default function App() {
     useNprogress(200);
+
     return (
         <Switch>
             <Route path='/' exact={true} component={Index} />
@@ -16,4 +17,4 @@ export default function App() {
             <Route path='*' component={NotFound} />
         </Switch>
     );
-};
+}

@@ -11,7 +11,8 @@ import useAuth from '../hooks/useAuth';
 
 const checkToken = async () => {
     await new Promise(rs => setTimeout(rs, 1000));
-    return Math.random() > 0.5 ? Math.random().toString(2).slice(2) : '';
+    const num = Math.random();
+    return num > 0.5 ? num.toString(2).slice(2) : '';
 };
 
 // 管理页整体布局
@@ -22,9 +23,7 @@ export default () => {
         console.log('哈哈：', token);
     });
 
-    const Text = ({ title }) => (
-        <h2>{title}</h2>
-    );
+    const Text = ({ title }) => <h2>{title}</h2>;
 
     if (loadStatus !== 'done') {
         return <Loading />;
@@ -52,4 +51,4 @@ export default () => {
             </Switch>
         </div>
     );
-}
+};

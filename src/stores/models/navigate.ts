@@ -1,4 +1,3 @@
-
 import UserIcon from '../../assets/icons/user.svg';
 import LogoutIcon from '../../assets/icons/logout.svg';
 
@@ -17,13 +16,11 @@ const state = {
     operates: [
         { id: 1, title: '我的资料', icon: UserIcon },
         { id: 2, title: '退出登录', icon: LogoutIcon },
-    ]
+    ],
 };
 
 export default {
     state,
-    reducers: {
-    },
-    effects: {
-    },
+    reducers: {},
+    effects: {},
 };
